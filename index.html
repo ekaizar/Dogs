@@ -7,66 +7,76 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            max-width: 900px;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
+            line-height: 1.6;
         }
-        h1 { text-align: center; color: #2c3e50; }
-        .video-container {
+        h1 { text-align: center; color: #1a73e8; margin-bottom: 40px; }
+        .video-section {
             background: #fff;
-            padding: 15px;
-            margin-bottom: 30px;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        video {
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            border-radius: 4px;
+            height: 100%;
+            border: 0;
         }
-        h3 { margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h3 { margin-top: 0; margin-bottom: 15px; color: #3c4043; border-left: 4px solid #1a73e8; padding-left: 10px; }
     </style>
 </head>
 <body>
 
-    <h1>NW2 Trial Videos</h1>
+    <h1>Eloise Kaizar - NW2 Dog Trials</h1>
 
-    <div class="video-container">
-        <h3>Computer Room</h3>
-        <video controls>
-            <source src="Eloise Kaizar - NW2 - Computer Room - 3:29:26.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <div class="video-container">
-        <h3>Containers</h3>
-        <video controls>
-            <source src="Eloise Kaizar - NW2 - Containers - 3:29:26.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div class="video-container">
-        <h3>Exterior</h3>
-        <video controls>
-            <source src="Eloise Kaizar - NW2 - Exterior - 3:29:26.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div class="video-container">
+    <div class="video-section">
         <h3>Interior 1</h3>
-        <video controls>
-            <source src="Eloise Kaizar - NW2 - Interior 1 - 3:29:26.mp4" type="video/mp4">
-        </video>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/Km2cAWEPLEI" allowfullscreen></iframe>
+        </div>
     </div>
 
-    <div class="video-container">
+    <div class="video-section">
+        <h3>Exterior</h3>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/lg4lgEtGtFo" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="video-section">
         <h3>Vehicles</h3>
-        <video controls>
-            <source src="Eloise Kaizar - NW2 - Vehicles - 3:29:26.mp4" type="video/mp4">
-        </video>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/_Exu-Wjtn3s" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="video-section">
+        <h3>Containers</h3>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/jAvnLmsMcTo" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="video-section">
+        <h3>Computer Room</h3>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/5rcXn6MA5e4" allowfullscreen></iframe>
+        </div>
     </div>
 
 </body>
