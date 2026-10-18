@@ -1,0 +1,251 @@
+:root {
+    --bg: #f0f2f5;
+    --card: #ffffff;
+    --text: #1c1e21;
+    --muted: #5f6368;
+    --accent: #1a73e8;
+    --accent-soft: #e8f0fe;
+    --border: #dadce0;
+    --done: #188038;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ---------- Site header and navigation ---------- */
+.site-header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.site-header .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+.site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.site-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+.site-nav a:hover { background: var(--bg); color: var(--text); }
+.site-nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); }
+
+/* ---------- Page layout ---------- */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+}
+h1 { color: var(--accent); margin: 0 0 8px; line-height: 1.2; }
+.lead { color: var(--muted); margin: 0 0 32px; font-size: 1.05rem; }
+h2 { margin: 40px 0 16px; }
+a { color: var(--accent); }
+
+.breadcrumb { font-size: 0.9rem; margin-bottom: 12px; }
+.breadcrumb a { text-decoration: none; }
+
+.site-footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 24px 20px 40px;
+}
+
+/* ---------- Link cards (home + videos index) ---------- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+.link-card {
+    display: block;
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 22px;
+    text-decoration: none;
+    color: var(--text);
+    border: 2px solid transparent;
+    transition: border-color 0.15s, transform 0.15s;
+}
+.link-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.link-card h3 { margin: 0 0 6px; color: var(--accent); }
+.link-card p { margin: 0; color: var(--muted); }
+.link-card .meta { margin-top: 12px; font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- Video sections (kept from the original page) ---------- */
+.video-section {
+    background: var(--card);
+    padding: 20px;
+    margin-bottom: 32px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+}
+.video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.video-section h3 {
+    margin: 0 0 15px;
+    color: #3c4043;
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+}
+
+.jump-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+}
+.jump-list a {
+    display: inline-block;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 14px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.jump-list a:hover { border-color: var(--accent); }
+
+/* ---------- Training schedule ---------- */
+.panel {
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+}
+.panel h2 { margin-top: 0; }
+.panel ul { padding-left: 20px; margin: 8px 0 0; }
+
+.key { display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0 0; font-size: 0.9rem; }
+.odor {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    padding: 0 6px;
+    color: #fff;
+}
+.odor.b { background: #8d6e63; }
+.odor.a { background: #7b1fa2; }
+.odor.c { background: #c62828; }
+
+.progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 24px;
+    font-weight: 500;
+}
+.progress-bar {
+    flex: 1;
+    height: 10px;
+    background: var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+}
+.progress-bar span { display: block; height: 100%; width: 0; background: var(--done); transition: width 0.2s; }
+
+.week h2 { margin-bottom: 4px; }
+.week .goal { color: var(--muted); margin: 0 0 16px; }
+
+.session {
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 18px 22px;
+    margin-bottom: 16px;
+    border-left: 5px solid var(--border);
+}
+.session.next { border-left-color: var(--accent); }
+.session.done { border-left-color: var(--done); opacity: 0.75; }
+.session-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.session-head h3 { margin: 0; }
+.session .where { color: var(--muted); margin: 2px 0 0; font-size: 0.95rem; }
+.badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #fff;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+.done-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+}
+.done-toggle input { width: 18px; height: 18px; accent-color: var(--done); cursor: pointer; }
+.session .note { font-size: 0.92rem; color: var(--muted); margin: 10px 0 0; }
+.session ol { margin: 12px 0 0; padding-left: 22px; }
+.session li { margin-bottom: 4px; }
+.el { font-weight: 600; }
+
+table.spots { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+table.spots th, table.spots td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.spots th { color: var(--muted); font-weight: 600; }
+.table-scroll { overflow-x: auto; }
+
+@media (max-width: 600px) {
+    main { padding: 24px 16px 48px; }
+    .site-header .inner { padding: 10px 16px; }
+    .site-nav { gap: 2px; }
+    .site-nav a { padding: 4px 8px; font-size: 0.9rem; }
+    .session { padding: 16px; }
+}
