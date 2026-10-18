@@ -48,16 +48,15 @@
             <h2>Week 1 &middot; Oct 18&ndash;24: Foundation</h2>
             <p class="goal">1&ndash;2 hides, all three odors, distractors kept far from odor.</p>
 
-            <article class="session" data-date="2026-10-18">
+            <article class="session" data-date="2026-10-18" data-completed="true">
                 <div class="session-head">
-                    <div><h3>Sun, Oct 18</h3><p class="where">Early afternoon &middot; <a href="#spot-thompson">Thompson Park</a></p></div>
+                    <div><h3>Sun, Oct 18</h3><p class="where">Afternoon &middot; <a href="#spot-aquatics">Columbus Aquatics Center</a></p></div>
                     <label class="done-toggle"><input type="checkbox"> Done</label>
                 </div>
+                <p class="note"><strong>What we did:</strong> 2 searches instead of the planned 4. The container searches are picked up on Thu, Oct 22.</p>
                 <ol>
-                    <li><span class="el">Containers:</span> 8 toolboxes in a loose line. 1 hide <span class="odor b">B</span>. Cheese in a toolbox at the far end, 6+ ft away.</li>
-                    <li><span class="el">Containers:</span> 10 toolboxes, scattered. 1 hide <span class="odor a">A</span>. Cheese and hot dog, each 4+ ft away.</li>
-                    <li><span class="el">Exterior:</span> bench and picnic-table area, about 20&times;20 ft. 1 hide <span class="odor c">C</span> on a bench leg, 1 ft up.</li>
-                    <li><span class="el">Exterior:</span> same area, reset. 2 hides: <span class="odor b">B</span> low on the picnic table, <span class="odor a">A</span> on a sign post 2 ft up.</li>
+                    <li><span class="el">Exterior:</span> 2 separate hides.</li>
+                    <li><span class="el">Vehicles:</span> Mike's work car.</li>
                 </ol>
             </article>
 
@@ -333,6 +332,18 @@
                         <a class="directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=Thompson+Park%2C+Columbus%2C+OH+43201" target="_blank" rel="noopener">Directions &rarr;</a>
                     </div>
                 </article>
+                <article class="spot" id="spot-aquatics">
+                    <div class="spot-map">
+                        <iframe src="https://maps.google.com/maps?q=Columbus+Aquatics+Center%2C+1160+Hunter+Ave%2C+Columbus%2C+OH&amp;z=17&amp;output=embed" title="Map of Columbus Aquatics Center" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="spot-info">
+                        <h3>Columbus Aquatics Center</h3>
+                        <p class="addr">1160 Hunter Ave, Columbus</p>
+                        <p><strong>Use for:</strong> Exteriors, vehicles</p>
+                        <p>Next to Thompson Park. Quiet when the pool is closed, such as Sunday afternoons.</p>
+                        <a class="directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=Columbus+Aquatics+Center%2C+1160+Hunter+Ave%2C+Columbus%2C+OH" target="_blank" rel="noopener">Directions &rarr;</a>
+                    </div>
+                </article>
                 <article class="spot" id="spot-circles">
                     <div class="spot-map">
                         <iframe src="https://maps.google.com/maps?ll=39.991,-83.016&amp;z=16&amp;t=m&amp;output=embed" title="Map of The circles" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -455,7 +466,9 @@
                 var count = 0, nextFound = false, now = today();
                 sessions.forEach(function (s) {
                     var date = s.getAttribute("data-date");
-                    var isDone = !!done[date];
+                    var locked = s.hasAttribute("data-completed");
+                    var isDone = locked || !!done[date];
+                    s.querySelector("input").disabled = locked;
                     s.classList.toggle("done", isDone);
                     s.querySelector("input").checked = isDone;
                     if (isDone) count++;
