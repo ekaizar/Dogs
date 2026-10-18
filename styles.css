@@ -237,11 +237,30 @@ a { color: var(--accent); }
 .session li { margin-bottom: 4px; }
 .el { font-weight: 600; }
 
-table.spots { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-table.spots th, table.spots td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
-table.spots th { color: var(--muted); font-weight: 600; }
-.table-scroll { overflow-x: auto; }
-
+/* ---------- Practice spots with maps ---------- */
+.spots-intro { color: var(--muted); margin: 0 0 16px; }
+.spot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+    gap: 20px;
+}
+.spot {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card);
+    scroll-margin-top: 80px; /* keep the sticky header from covering a jumped-to map */
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.spot:target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.spot-map { position: relative; height: 220px; background: var(--bg); }
+.spot-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.spot-info { padding: 14px 16px 16px; }
+.spot-info h3 { margin: 0; font-size: 1.05rem; }
+.spot-info p { margin: 4px 0 0; font-size: 0.93rem; }
+.spot-info .addr { color: var(--muted); }
+.directions { display: inline-block; margin-top: 10px; font-weight: 600; text-decoration: none; }
+.session .where a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
 @media (max-width: 600px) {
     main { padding: 24px 16px 48px; }
     .site-header .inner { padding: 10px 16px; }
